@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="text_no_data">No Data</string>
+    <string name="text_search_by_title">Insert keyword...</string>
+</resources>

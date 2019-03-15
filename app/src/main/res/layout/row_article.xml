@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View.OnClickListener" />
+
+        <variable
+            name="article"
+            type="com.example.newsapp.data.ArticleModel" />
+
+        <variable
+            name="listener"
+            type="com.example.newsapp.screen.article.ArticleItemListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        android:onClick="@{() -> listener.onArticleItemClicked(article.url)}"
+        android:paddingLeft="@dimen/dimen_16"
+        android:paddingTop="@dimen/dimen_16"
+        android:paddingRight="@dimen/dimen_16">
+
+        <ImageView
+            android:id="@+id/row_article_imageview_thumbnail"
+            android:layout_width="96dp"
+            android:layout_height="64dp"
+            android:layout_marginRight="@dimen/dimen_16"
+            android:background="@color/grey_200"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{article.urlToImage}" />
+
+        <TextView
+            android:id="@+id/row_article_textview_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/row_article_imageview_thumbnail"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{article.title}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_16"
+            android:textStyle="bold"
+            tools:text="The 21-day bitcoin challenge" />
+
+        <TextView
+            android:id="@+id/row_article_textview_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/row_article_textview_title"
+            android:layout_toRightOf="@id/row_article_imageview_thumbnail"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{article.author}"
+            android:textColor="@color/grey_600"
+            android:textSize="@dimen/text_12"
+            tools:text="Luis Martinez" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/row_article_imageview_thumbnail"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:background="?android:attr/dividerVertical" />
+    </RelativeLayout>
+</layout>

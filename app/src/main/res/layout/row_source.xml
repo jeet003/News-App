@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View.OnClickListener" />
+
+        <variable
+            name="source"
+            type="com.example.newsapp.data.SourceModel" />
+
+        <variable
+            name="listener"
+            type="com.example.newsapp.screen.source.SourceItemListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        android:onClick="@{() -> listener.onSourceItemClicked(source)}"
+        android:paddingLeft="@dimen/dimen_16"
+        android:paddingTop="@dimen/dimen_16"
+        android:paddingRight="@dimen/dimen_16">
+
+        <TextView
+            android:id="@+id/row_source_textview_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{source.name}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_16"
+            android:textStyle="bold"
+            tools:text="The Verge" />
+
+        <TextView
+            android:id="@+id/row_source_textview_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{source.description}"
+            android:textColor="@color/grey_600"
+            android:textSize="@dimen/text_12"
+            tools:text="Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:background="?android:attr/dividerVertical" />
+    </LinearLayout>
+</layout>
